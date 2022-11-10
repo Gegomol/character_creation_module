@@ -1,10 +1,12 @@
-from random import randint
+"""Программа отвечает за выбор персонажа и управление персонажем."""
 
+from random import randint
 
 from graphic_arts.start_game_banner import run_screensaver
 
 
 def attack(char_name: str, char_class: str) -> str:
+    """Функция отвечает за команду атаки персонажа."""
     if char_class == 'warrior':
         kick1: int = 5 + randint(3, 5)
         return (f'{char_name} нанёс урон противнику равный {kick1}')
@@ -18,6 +20,7 @@ def attack(char_name: str, char_class: str) -> str:
 
 
 def defence(char_name: str, char_class: str) -> str:
+    """Функция отвечает за команду защиты персонажа."""
     if char_class == 'warrior':
         block1: int = 10 + randint(5, 10)
         return (f'{char_name} блокировал {block1} урона')
@@ -31,6 +34,7 @@ def defence(char_name: str, char_class: str) -> str:
 
 
 def special(char_name: str, char_class: str) -> str:
+    """Функция отвечает за команду специального умения персонажа."""
     if char_class == 'warrior':
         special1: int = 105
         return (f'{char_name} применил специальное умение '
@@ -45,6 +49,7 @@ def special(char_name: str, char_class: str) -> str:
 
 
 def start_training(char_name: str, char_class: str) -> str:
+    """Функция описывает логику управления персонажем."""
     if char_class == 'warrior':
         print(f'{char_name}, ты Воитель — отличный боец ближнего боя.')
     if char_class == 'mage':
@@ -69,6 +74,7 @@ def start_training(char_name: str, char_class: str) -> str:
 
 
 def choice_char_class() -> str:
+    """Функция отвечает за выбор персонажа."""
     approve_choice: str = None
     char_class: str = None
     while approve_choice != 'y':
@@ -91,6 +97,7 @@ def choice_char_class() -> str:
 
 
 if __name__ == '__main__':
+    """Стартовая функция игры."""
     run_screensaver()
     print('Приветствую тебя, искатель приключений!')
     print('Прежде чем начать игру...')
@@ -100,7 +107,7 @@ if __name__ == '__main__':
     print('Ты можешь выбрать один из трёх путей силы:')
     print('Воитель, Маг, Лекарь')
     char_class: str = choice_char_class()
-    print(start_training(char_name, char_class)) 
+    print(start_training(char_name, char_class))
 
 
 main()
